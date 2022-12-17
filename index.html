@@ -1,12 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-	<title>Yashashri Dalvi</title>
+<meta charset="utf-8">
+<title>Registration Form</title>
+<style>
+    *{
+        font-weight: 1000;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        
+    }
+    body{
+        background-image: url(https://wallpapercave.com/dwp2x/wp3272702.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    input[type=text]{
+        border: none;
+        border-radius: 20px;
+        padding: 5%;
+    }
+    #mobile_no{
+        border: none;
+        border-radius: 20px;
+        padding: 2%;
+    }
+    table{
+        text-align: center;
+        border-radius: 40px;
+        color: white;
+        background-color: rgba(0,3,7,0.3);
+        padding: 20px;
+    }
+    input[type=email]{
+        border: none;
+        border-radius: 20px;
+        padding: 3%;
+        width:50%
+    }
+    .rows{
+        border-radius: 30px;
+    }
+
+    input[type=submit]{
+        color: white;
+        background-color: green;
+        border: none;
+        border-radius: 20px;
+        padding: 2%;
+    }
+    input[type=submit]:hover{
+        background-color: cadetblue;
+        color: black;
+    }
+    input[type=reset]{
+        color: white;
+        background-color: red;
+        border: none;
+        border-radius: 20px;
+        padding: 2%;
+    }
+    input[type=reset]:hover{
+        color: black;
+        background-color: yellow;
+    }
+    footer{
+        color: white;
+    }
+
+</style>
+<script type="text/javascript">
+function verify()
+{
+var fname = document.getElementById("fname");
+var gender = document.getElementsByName("gender");
+var address = document.getElementById("address");
+var pin = document.getElementById("pin");
+var mobile_no = document.getElementById("mobile_no");
+var lname = document.getElementById("lname");
+var email = document.getElementById("email");
+var msg = new Array();
+var flag = 1;
+var message = "Following Details are Required\n";
+var message2 = "Following Details are Required<br>";
+if(fname.value == "")
+{
+msg[0] = "First Name is Required";
+flag = 0;
+} else { msg[0] = ""; }
+
+if(lname.value == "")
+{
+msg[1] = "Last Name is required ";
+flag =0;
+} else{ msg[1] = "";}
+
+if(gender[0].checked == false && gender[1].checked == false)
+{
+msg[2] = "Select Gender";
+flag = 0;
+} else { msg[2] = ""; }
+
+if(address.value == "")
+{
+msg[3] = "Address is Required";
+flag = 0;
+}
+if(mobile_no.value == "")
+{
+msg[3] = "Mobile No. is Required";
+flag = 0;
+} else { msg[3] = ""; }
+
+if(pin.value == "")
+{
+msg[4] = "Pin code is Required";
+flag = 0;
+} else { msg[4] = ""; }
+
+if(email.value == "")
+{
+msg[5] = "Email address is Required";
+flag = 0;
+} else { msg[5] = ""; }
+
+
+
+if(flag == 0)
+{
+// Show Error Messages
+for(var x=0;x<=5;x++)
+{
+if(msg[x] != "")
+{
+message += msg[x] + "\n";
+message2 += msg[x] + "<br>";
+}
+}
+alert(message);
+document.getElementById("abc").innerHTML = "<p style='color:red;'>"+message2+"</p>";
+return false;
+}
+else
+{
+return true;
+}
+}
+
+</script>
 </head>
 <body>
-<h1>Yashashri Dalvi</h1>
-<p>Hello my name is Yashashri Dalvi. I'm from Saoner.</p>
-<p>I'm in third year, pursuing B.Tech Degree in ETC Deparatment, from S B Jain Institute manag.. .</p>
-	<p>I am very creative.</p>
+<div align="center" id="division">
+<h1>Registration Form</h1>
+    <h3 id="abc"></h3>
+    <form method="post" action="" onSubmit="return verify()">
+    <table border="2" cellspacing="2" cellpadding="20">
+        
+       <tr>
+        <td>First Name: </td>
+            <td><input type="text" name="fname" id="fname" size="25" placeholder="Enter First Name" /></td>
+            <td>Last Name: </td>
+            <td><input type="text" name="lname" id="lname" size="25" placeholder="Enter Last Name"></td>
+       </tr>
+        <tr>
+        <td>Gender:</td>
+        <td colspan="5"><input type="radio" name="gender" value="Male" /> Male
+        <input type="radio" name="gender" value="Female" /> Female
+        </td>
+        </tr>
+        <tr>
+            <td>Address: </td>
+               <td><input type="text" name= "address" text area ="add" id="address" placeholder="Enter Address"/></td>
+                <td>Pin Code: </td>
+                <td><input type="text" name="pin" id="pin" placeholder="123"></td>
+               </tr>
+               <tr>
+                <td>Mobile Number: </td>
+                <td colspan="5"><input type="text" name="mobile_no" id="mobile_no" placeholder="+91" maxlength="10"></td>
+               </tr>
+        <tr>
+            <td>Email address: </td>
+            <td colspan="5"><input type="email" name="email" text area = "add" id="email" placeholder="Enter email address" /></td>
+        </tr>
+        <td class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+            Check me out
+            </label>
+        </td>
+            <tr>
+            <td class="rows" colspan="5">
+                <input type="submit" value="REGISTER"/>
+                <input type="reset" value="CLEAR" />
+                </td>
+                </tr>
+        </table>
+    </form>
+    <br>
+<br>
+</div>
+<footer align = "center">
+<h3> &copy;Yashashri Dalvi | Department of Electronic & Telecommunication Engineering | USN : ET20107 | S.B.Jain, Nagpur</h3>
+
+</footer>
 </body>
 </html>
